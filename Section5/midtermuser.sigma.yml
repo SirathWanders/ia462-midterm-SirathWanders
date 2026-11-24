@@ -1,0 +1,23 @@
+title: Suspicious Account Creation
+id: 5b3a5c7c-1a2b-4c3d-9e8f-462500000001
+status: experimental
+description: |
+  Detects the creation of a new Windows user account, which can indicate
+  unauthorized account creation.
+author: Antonio Woods
+date: 2026/11/23
+references:
+  - https://attack.mitre.org/techniques/T1136/001/
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4720
+  condition: selection
+falsepositives:
+  - Legitimate user account creation by administrators
+level: high
+tags:
+  - attack.persistence
+  - attack.t1136.001
